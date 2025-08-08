@@ -1,3 +1,14 @@
+# Visual Studio
+.vs
+bin
+*.sln
+*.vcxproj
+*.filters
+*.user
+
+
+# GitHub generated
+
 # Prerequisites
 *.d
 
