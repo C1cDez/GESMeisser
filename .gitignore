@@ -6,6 +6,9 @@ bin
 *.filters
 *.user
 
+# Program files
+config
+
 
 # GitHub generated
 
