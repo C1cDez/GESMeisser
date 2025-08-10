@@ -15,6 +15,8 @@ void analyzeConfig();
 void loadConfig()
 {
     std::ifstream file{ CONFIG_FILE_NAME };
+    if (!file.is_open()) std::printf("No file to load the config from was found\n");
+
     std::string line{};
     while (std::getline(file, line))
     {
@@ -42,13 +44,12 @@ std::string& getConfig(const std::string& key)
 
 void setConfigIfNone(const std::string& key, const std::string& value)
 {
-    if (sConfigMap.find(key) == sConfigMap.end()) 
+    if (sConfigMap.find(key) == sConfigMap.end())
         sConfigMap[key] = value;
 }
 void analyzeConfig()
 {
-    setConfigIfNone(CONFIG_ENABLE_IPV6, "0");
-    setConfigIfNone(CONFIG_PSERV_START_ON, "0.0.0.0");
-    setConfigIfNone(CONFIG_PSERV_PORT, "216");
-    setConfigIfNone(CONFIG_PSERV_BACKLOG, "128");
+    setConfigIfNone(CONFIG_PSERVER_START_ON, "0.0.0.0");
+    setConfigIfNone(CONFIG_PSERVER_PORT, "216");
+    setConfigIfNone(CONFIG_PSERVER_BACKLOG, "128");
 }

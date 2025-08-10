@@ -2,10 +2,9 @@
 
 #include <string>
 
-#define CONFIG_ENABLE_IPV6 "enable.ipv6"
-#define CONFIG_PSERV_START_ON "pserv.start.on"
-#define CONFIG_PSERV_PORT "pserv.port"
-#define CONFIG_PSERV_BACKLOG "pserv.backlog"
+#define CONFIG_PSERVER_START_ON "pserver.start.on"
+#define CONFIG_PSERVER_PORT "pserver.port"
+#define CONFIG_PSERVER_BACKLOG "pserver.backlog"
 
 
 void loadConfig();

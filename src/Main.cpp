@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "Config.h"
+#include "Network.h"
 
 
 int commandLineMain(int argc, char* argv[]);
@@ -55,15 +56,22 @@ int commandLineMain(int argc, char* argv[])
 void programMain()
 {
     std::printf("Starting program\n");
-    /*
     if (startupWS2())
     {
         std::printf("WSA Failed\n");
         return;
     }
-    */
 
     loadConfig();
+
+    Peer& peer = Peer::thisPeer();
+    if (int status = peer.init())
+    {
+        std::printf("Peer initialization failed: CODE=%d\n", status);
+        return;
+    }
+    peer.run();
+    peer.close();
+
     saveConfig();
 }
-
